@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Univercity Website design</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Fontawesome 4 Cdn from BootstrapCDN -->
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="{% static 'images/logo.png' %}"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+                    <li><a href="http://127.0.0.1:8000/course/">Course</a></li>
+                    <li><a href="http://127.0.0.1:8000/blog/">Blog</a></li>
+                    <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+
+        <h1>Contact-Us</h1>
+
+    </section>
+    <section class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30711080.820512634!2d64.44765887656375!3d20.012239940397077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1620454709022!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    </section>
+    <section class="contact">
+        <div class="row">
+            <div class="contact-col">
+                <div>
+                    <i class="fa fa-home"></i>
+                    <span>
+                        <h5>India Gujart,Bhavnagar</h5>
+                        <p>Bhavnagar Main Districit</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <span>
+                        <h5>+919999999999</h5>
+                        <p>Monday To Friday 9:00 AM To 4:00 PM</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-envelope-o"></i>
+                    <span>
+                        <h5>pritesh@gmail.com</h5>
+                        <p>Email Us Your Query</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contact-col">
+                <form method="POST" action="/contact/">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="NAME" id="name" required>
+                   
+                    <input type="email" name="email" placeholder="EMAIL" id="email" required >
+                   
+                    <input type="text" name="subject" placeholder="SUBJECT" id="subject" required>
+                   
+                    <textarea rows="10" cols="5" name="message" placeholder="MESSAGE" id="message" required></textarea>
+                    <!--<label class="alert alert-danger" role="alert" id="labelmessage" style="visibility: hidden;">Message Required</label>-->
+                    <button type="submit"  class="text-btn red-btn">SEND MESSAGE</button>
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <div class="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button
+                                </button>
+                              </div>
+                        <!--- {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+                {% endfor %}
+                </ul>
+{% endif %}
+
+                   
+                </form>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <section class="footer">
+        <h1>About-Us</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Eos ab repellendus ex dolor possimus repellat eligendi iusto
+            aspernatur, quam maxime repudiandae! Voluptate nobis eligendi
+            raesentium illum vel maxime sequi?</p>
+        <div class="icon">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+
+        </div>
+    </section>
+
+    <!----------------java script toogle bar ------>
+    <script>
+        var nav = document.getElementById("navlinks");
+        function showmenu() {
+            nav.style.right = "0";
+        }
+        function hidemenu() {
+            nav.style.right = "-200px";
+        }
+        /*function fun()
+        {
+            var one=document.getElementById("name").value;
+            var two=document.getElementById("email").value;
+            var three=document.getElementById("subject").value;
+            var four=document.getElementById("message").value;
+
+            if(one.trim()=="")
+            {
+                document.getElementById("labelname").style.visibility="visible";
+                return false;
+            }
+            else if(two.trim()=="")
+            {
+                document.getElementById("labelname").style.visibility="hidden";
+                document.getElementById("labelsubject").style.visibility="hidden";
+                document.getElementById("labelemail").style.visibility="visible";
+                return false;
+            }
+            else if(three.trim()=="")
+            {
+                document.getElementById("labelsubject").style.visibility="visible";
+                document.getElementById("labelname").style.visibility="hidden";
+                document.getElementById("labelemail").style.visibility="hidden";
+                return false;
+            }
+           
+            else
+            {   
+                
+                return true;
+            }*/
+    
+       
+
+    </script>
+
+
+</body>
+
+</html>

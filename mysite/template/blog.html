@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Univercity Website design</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+        <!-- Fontawesome 4 Cdn from BootstrapCDN -->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="{% static 'images/logo.png' %}"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+                    <li><a href="http://127.0.0.1:8000/course/">Course</a></li>
+                    <li><a href="http://127.0.0.1:8000/blog/">Blog</a></li>
+                    <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+
+       <h1>Our Certificate & online programs for 2021</h1>
+
+    </section>
+    
+    <section class="blog">
+        <div class="row">
+            <div class="blog-left">
+                <img src="{% static 'images/certificate.jpg' %}">
+                <h1>Our Certificate & online programs for 2021</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+                    aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+                    raesentium illum vel maxime sequi?</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+                    aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+                    raesentium illum vel maxime sequi?</p>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+                        aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+                        raesentium illum vel maxime sequi?</p>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+                            aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+                            raesentium illum vel maxime sequi?Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+                                aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+                                raesentium illum vel maxime sequi?</p>
+
+                    <div class="comment-box">
+
+                        <h3>Leave A Comment</h3>
+
+                        <form class="comment-form" action="/blog/" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <textarea rows="5" placeholder="message" name="message" required></textarea>
+                            <button type="submit" class="text-btn red-btn">POST COMMENT</button>
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <div class="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                            <!--- {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+                    {% endfor %}
+                    </ul>
+    {% endif %}
+                        </form>
+                    </div>
+            </div>
+
+                <div class="blog-right">
+                    <h2>Post-category</h2>
+                    <div>
+                        <span>Data Science</span>
+                        <span>20</span>
+                    </div>
+                    <div>
+                        <span>AI</span>
+                        <span>25</span>
+                    </div>
+                    <div>
+                        <span>Web Development</span>
+                        <span>45</span>
+                    </div>
+                    <div>
+                        <span>Java Programming</span>
+                        <span>29</span>
+                    </div>
+                    <div>
+                        <span>Python Programming</span>
+                        <span>52</span>
+                    </div>
+                    <div>
+                        <span>React-Js</span>
+                        <span>12</span>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="footer">
+    <h1>About-Us</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+        aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+        raesentium illum vel maxime sequi?</p>
+        <div class="icon">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+            
+        </div>
+</section>
+
+
+
+
+
+
+
+
+<!----------------java script toogle bar ------>
+    <script>
+        var nav=document.getElementById("navlinks");
+        function showmenu()
+        {
+                nav.style.right="0";
+        }
+        function hidemenu()
+        {
+            nav.style.right="-200px";
+        }
+    </script>
+
+
+</body>
+
+</html>

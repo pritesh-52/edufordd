@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Univercity Website design</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+        <!-- Fontawesome 4 Cdn from BootstrapCDN -->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="{% static 'images/logo.png' %}"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hidemenu()"></i>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+                    <li><a href="http://127.0.0.1:8000/course/">Course</a></li>
+                    <li><a href="http://127.0.0.1:8000/blog/">Blog</a></li>
+                    <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+
+       <h1>About US</h1>
+
+    </section>
+<section class="about-us">
+    <div class="row">
+        <div class="about-col">
+            <h1>Our Univercity is largest among the world</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                 Laborum et inventore dolores vel, ullam commodi nesciunt quisquam. 
+                 Sint perferendis accusantium velit possimus atque quasi dolorem, 
+                iure, veniam exercitationem, nostrum eius.</p>
+                <a href="" class="text-btn red-btn">EXPLORE NOW</a>
+        </div>
+            <div class="about-col">
+                <img src="{% static 'images/about.jpg' %}">
+        </div>
+    </div>
+</section>
+
+
+<section class="footer">
+    <h1>About-Us</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Eos ab repellendus ex dolor possimus repellat eligendi iusto 
+        aspernatur, quam maxime repudiandae! Voluptate nobis eligendi 
+        raesentium illum vel maxime sequi?</p>
+        <div class="icon">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+            
+        </div>
+</section>
+
+
+
+
+
+
+
+
+<!----------------java script toogle bar ------>
+    <script>
+        var nav=document.getElementById("navlinks");
+        function showmenu()
+        {
+                nav.style.right="0";
+        }
+        function hidemenu()
+        {
+            nav.style.right="-200px";
+        }
+    </script>
+
+
+</body>
+
+</html>
